@@ -1,0 +1,30 @@
+<a type="button" class="btn btn-primary m-4" [routerLink]="'/create'">Create Task</a>
+<div class="row">
+    <table class="table table-bordered table-hover text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Mark</th>
+                <th scope="col">Title</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of taskData , let i = index">
+                <td>{{i+1}}</td>
+                <td><input type="checkbox" [checked]="task.status== 'Completed'" class="box"
+                        (click)="markAsCompleted(task,task.id)" [disabled]="task.status== 'Completed'"></td>
+                <td>{{task.title}}</td>
+                <td>{{task.date}}</td>
+                <td><p>{{ task.status }}</p></td>
+                <td>
+                    <button class="btn btn-danger" (click)="onDelete(task.id)">Delete</button>
+                    <button class="btn btn-primary ml-4" (click)="onClick(task.id)">Details</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

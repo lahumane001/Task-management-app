@@ -1,0 +1,16 @@
+<p>task-details works!</p>
+<div>
+    <div class="col-md-6 offset-md-3 col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2>Title : {{taskDetail?.title}}</h2>
+                <p><strong> Description</strong> : {{taskDetail?.desc}}</p>
+                <p><strong>Due Date</strong> : {{taskDetail?.date | date}}</p>
+                <p><strong>Status</strong> : {{ taskDetail?.status }}</p>
+                <button class="btn btn-primary btn-block" (click)="onEdit()" [disabled]="taskDetail?.status == 'Completed'">Edit Task</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
